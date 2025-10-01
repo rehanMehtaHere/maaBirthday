@@ -20,7 +20,6 @@
     .wrap{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
     @media(max-width:900px){.wrap{grid-template-columns:1fr;max-width:720px}}
 
-    /* Left - hero */
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));border-radius:var(--radius);padding:36px;box-shadow:var(--soft-shadow);backdrop-filter: blur(6px);}
     h1{margin:0;font-size:42px;line-height:1.02}
     .subtitle{margin-top:8px;color:#333;opacity:0.9}
@@ -28,12 +27,10 @@
     .message-box{margin-top:22px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));padding:20px;border-radius:14px}
     .typed{font-size:20px;font-weight:600}
 
-    /* controls */
     .controls{display:flex;gap:12px;margin-top:18px}
     button{background:var(--accent);color:white;border:0;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow: 0 6px 18px rgba(255,107,107,0.18)}
     .btn-ghost{background:transparent;color:#222;border:1px solid rgba(0,0,0,0.06)}
 
-    /* Right - card */
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));border-radius:22px;padding:18px;box-shadow:var(--soft-shadow);display:flex;flex-direction:column;align-items:center}
     .photo{width:340px;height:340px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#fff,#f6f6f6);display:grid;place-items:center;position:relative}
     .photo img{width:100%;height:100%;object-fit:cover;display:block}
@@ -43,22 +40,17 @@
     .actions{display:flex;gap:10px;margin-top:14px}
     .small{padding:8px 10px;border-radius:10px;font-weight:700}
 
-    /* floating hearts */
     .hearts{position:fixed;left:0;right:0;top:0;bottom:0;pointer-events:none;overflow:hidden}
     .heart{position:absolute;width:18px;height:18px;background:var(--accent);transform:rotate(45deg);border-radius:4px;opacity:0.9}
 
-    /* confetti canvas overlay */
     #confetti{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:999}
 
-    /* small help text */
     .hint{margin-top:12px;color:#333;opacity:0.75;font-size:13px}
 
     footer{margin-top:14px;color:#333;opacity:0.8;font-size:13px}
 
-    /* sparkle */
     .sparkle{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;background:linear-gradient(45deg,#fff5,#fff);filter:blur(6px);opacity:0.6}
 
-    /* editable look */
     .editable{border-bottom:2px dashed rgba(0,0,0,0.06);padding-bottom:6px;display:inline-block}
   </style>
 </head>
@@ -72,29 +64,27 @@
         <div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(180deg,#fff,#ffd1d1);display:grid;place-items:center;font-size:22px;font-weight:800;color:var(--accent)">M</div>
         <div>
           <h1 contenteditable id="title">Happy Birthday, <span id="momName" class="editable">Mom</span> 🎂</h1>
-          <div class="subtitle">A surprise page made just for her — open it, play, and show some love.</div>
+          <div class="subtitle">Happy Birthday to the most pretty, loving, and a great mother 🎂🥳🎉.</div>
         </div>
       </div>
 
       <div class="message-box">
-        <div class="typed" id="typed">Click "Play Surprise" to start the celebration — confetti, music, and a slideshow.</div>
+        <div class="typed" id="typed">Click "Play Surprise" to start the celebration — confetti and a slideshow.</div>
 
         <div class="controls">
           <button id="playBtn">Play Surprise</button>
-          <button class="btn-ghost" id="changePic">Change Photo</button>
-          <button class="btn-ghost" id="editMsg">Edit Messages</button>
           <button class="btn-ghost" id="printBtn">Print / Save</button>
         </div>
 
-        <div class="hint">Tip: Click the name to edit it straight on the page. Use "Change Photo" to add a picture of her.</div>
+        <div class="hint">Tip: Click the name to edit it straight on the page. The slideshow will auto-run through 12 photos.</div>
       </div>
 
-      <footer>Made with ❤️ — tweak it if you want. All in a single HTML file.</footer>
+      <footer>Made with Loads of Love ❤️, Love you 3000 💖 — Rehan.</footer>
     </section>
 
     <aside class="card">
       <div class="photo" id="photoBox">
-        <img id="mainPhoto" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='800'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='%23ffd1d1'/><stop offset='1' stop-color='%23fff1f1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/><text x='50%' y='50%' font-size='36' font-family='Arial' text-anchor='middle' alignment-baseline='middle' fill='%23805555'>Click "Change Photo" to add a picture</text></svg>" alt="Mom">
+        <img id="mainPhoto" src="1.jpeg">
         <div class="sparkle"></div>
       </div>
 
@@ -106,31 +96,22 @@
         <button class="small" id="nextPic">▶</button>
         <button class="small" id="toggleHearts">♥ Toggle Hearts</button>
       </div>
-
-      <div style="display:flex;gap:8px;margin-top:12px">
-        <input id="fileInput" type="file" accept="image/*" style="display:none">
-        <button class="small" id="changePhotoBtn">Change Photo</button>
-        <button class="small" id="playTune">Play Tune</button>
-      </div>
-
     </aside>
   </div>
 
   <script>
-    // ======== User-editable content ========
     const messages = [
-      "We love you more than words can say.",
+      "I can't thank you enough for all the thing you have given to me.",
       "Thank you for every hug, meal and midnight worry.",
-      "You make our world brighter every single day.",
-      "Wishing you a day full of smiles, cake, and quiet joy."
+      "You make my world brighter every single day.",
+      "Wishing you a day full of smiles, cake, and lot's of joy!",
+      "And trust me.. everything will be great!"
     ];
-    // Replace default name in two places automatically
     const nameEls = [document.getElementById('momName'), document.getElementById('displayName')];
     function setName(n){nameEls.forEach(e=>e.textContent=n)}
-    // Allow person to edit name inline
     document.getElementById('momName').addEventListener('input', e=>{setName(e.target.textContent)});
 
-    // ======== Typed message effect ========
+    // Typed effect
     let tIndex=0, mIndex=0, typing=true;
     const typedEl = document.getElementById('typed');
     function typeLoop(){
@@ -146,13 +127,12 @@
     }
     typeLoop();
 
-    // ======== Confetti (simple) ========
+    // Confetti
     const confettiCanvas = document.getElementById('confetti');
     const ctx = confettiCanvas.getContext('2d');
     let confettiParticles = [];
     function resizeCanvas(){confettiCanvas.width = innerWidth; confettiCanvas.height = innerHeight}
     addEventListener('resize', resizeCanvas); resizeCanvas();
-
     function spawnConfetti(){
       confettiParticles = [];
       const count = 140;
@@ -171,7 +151,7 @@
       if(confettiParticles.length>0) requestAnimationFrame(frame); else confettiRunning=false;
     } frame(); }
 
-    // ======== Floating hearts ========
+    // Hearts
     const heartsLayer = document.getElementById('hearts');
     let heartsOn = false;
     function toggleHearts(show){
@@ -181,7 +161,7 @@
       const n = 18;
       for(let i=0;i<n;i++){
         const d = document.createElement('div'); d.className='heart';
-        const left = Math.random()*100; const top = Math.random()*70;
+        const left = Math.random()*100;
         d.style.left=left+'%'; d.style.top=(80+Math.random()*10)+'%'; d.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8+Math.random()*1.3})`;
         d.style.background = `linear-gradient(45deg, rgba(255,107,107,0.95), rgba(255,190,190,0.9))`;
         heartsLayer.appendChild(d);
@@ -194,79 +174,36 @@
       requestAnimationFrame(f);
     }
 
-    // ======== Simple melody via WebAudio ========
-    let audioCtx; function playMelody(){
-      if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
-      const notes = [440,660,880,660,440,330,392,440];
-      let t = audioCtx.currentTime;
-      for(let i=0;i<notes.length;i++){
-        const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
-        o.type='sine'; o.frequency.value = notes[i]; g.gain.value = 0.12; o.connect(g); g.connect(audioCtx.destination);
-        o.start(t); o.stop(t+0.35);
-        t += 0.32;
-      }
-    }
-
-    // ======== Slideshow support (simple array of uploaded images) ========
-    const fileInput = document.getElementById('fileInput');
+    // Slideshow
     const mainPhoto = document.getElementById('mainPhoto');
-    const photos = []; let current = 0; // will store data-urls
-    document.getElementById('changePic').addEventListener('click', ()=> fileInput.click());
-    document.getElementById('changePhotoBtn').addEventListener('click', ()=> fileInput.click());
-    fileInput.addEventListener('change', async (e)=>{
-      const f = e.target.files[0]; if(!f) return; const data = await fileToDataURL(f); photos.push(data); current = photos.length-1; mainPhoto.src = data; updatePreview();
-    });
-    function fileToDataURL(file){return new Promise(res=>{const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(file);});}
-    document.getElementById('prevPic').addEventListener('click', ()=>{ if(photos.length===0) return; current=(current-1+photos.length)%photos.length; mainPhoto.src=photos[current];});
-    document.getElementById('nextPic').addEventListener('click', ()=>{ if(photos.length===0) return; current=(current+1)%photos.length; mainPhoto.src=photos[current];});
-
-    function updatePreview(){document.getElementById('subline').textContent = `Photo ${current+1} of ${photos.length} — show her this page!`}
+    const photos = Array.from({length:12},(_,i)=>`${i+1}.jpeg`);
+    let current = 0;
+    function showPhoto(){ mainPhoto.src = photos[current]; document.getElementById('subline').textContent = `Photo ${current+1} of ${photos.length}`; }
+    document.getElementById('prevPic').addEventListener('click', ()=>{ current=(current-1+photos.length)%photos.length; showPhoto(); });
+    document.getElementById('nextPic').addEventListener('click', ()=>{ current=(current+1)%photos.length; showPhoto(); });
+    function startSlideshow(){ clearInterval(slideTimer); slideTimer = setInterval(()=>{ current=(current+1)%photos.length; showPhoto(); }, 2600); }
+    let slideTimer;
 
     // Controls
-    document.getElementById('playBtn').addEventListener('click', ()=>{ spawnConfetti(); toggleHearts(true); playMelody(); startSlideshow(); });
+    document.getElementById('playBtn').addEventListener('click', ()=>{ spawnConfetti(); toggleHearts(true); startSlideshow(); });
     document.getElementById('toggleHearts').addEventListener('click', ()=>toggleHearts());
-    document.getElementById('playTune').addEventListener('click', ()=>playMelody());
     document.getElementById('printBtn').addEventListener('click', ()=>window.print());
 
-    // Make display name update when editing inline in the title (if user edits the display name directly)
     const displayName = document.getElementById('displayName');
-    displayName.addEventListener('click', ()=>{
-      const newName = prompt('Change display name:', displayName.textContent) || displayName.textContent; setName(newName);
-    });
+    displayName.addEventListener('click', ()=>{ const newName = prompt('Change display name:', displayName.textContent) || displayName.textContent; setName(newName); });
 
-    // Slideshow autoplay when playing
-    let slideTimer;
-    function startSlideshow(){ if(photos.length===0) return; clearInterval(slideTimer); slideTimer = setInterval(()=>{ current=(current+1)%photos.length; mainPhoto.src=photos[current]; updatePreview(); }, 2600); }
-
-    // Small UX niceties: when user edits the name in sidebar update title
     const displayObserver = new MutationObserver(()=>{ const n = displayName.textContent; nameEls.forEach(e=>e.textContent=n); });
     displayObserver.observe(displayName,{childList:true,characterData:true,subtree:true});
 
-    // allow quick messages editing - simple prompt
-    document.getElementById('editMsg').addEventListener('click', ()=>{
-      const t = prompt('Edit the rotating messages (separate with `|`):', messages.join(' | ')); if(!t) return; const arr = t.split('|').map(s=>s.trim()).filter(Boolean); if(arr.length) {messages.length=0; arr.forEach(s=>messages.push(s)); mIndex=0; tIndex=0;}
-    });
-
-    // small keyboard shortcut: press M to quickly change the name
     addEventListener('keypress', (e)=>{ if(e.key.toLowerCase()==='m'){ const newName = prompt('New name for Mom:', nameEls[0].textContent) || nameEls[0].textContent; setName(newName);} });
 
-    // confetti: spawn on click anywhere on hero too
-    document.body.addEventListener('click', (ev)=>{
-      // if clicked a button avoid duplicate
-      if(ev.target.tagName.toLowerCase()==='button') return;
-      spawnConfetti();
-    });
+    document.body.addEventListener('click', (ev)=>{ if(ev.target.tagName.toLowerCase()==='button') return; spawnConfetti(); });
 
-    // small accessibility: focus styles
-    document.querySelectorAll('button').forEach(b=>b.addEventListener('keyup', e=>{ if(e.key==='Enter') b.click(); }));
-
-    // initial tiny animation for photo
     setTimeout(()=>{ document.getElementById('photoBox').style.transform='translateY(-4px)'; document.getElementById('photoBox').style.transition='transform 600ms ease';}, 700);
 
-    // Prevent accidental text selection when double-clicking title
     document.getElementById('title').addEventListener('mousedown', (e)=>{ if(e.detail>1) e.preventDefault(); });
 
-    // End of script
+    showPhoto();
   </script>
 </body>
 </html>
